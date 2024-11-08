@@ -8,7 +8,7 @@ pipeline {
         stage ('BRANCH_EXECUTION') {
             when {
                 expression {
-                    environment name: 'HOTFIX_BRANCH', value: 'hotfix'
+                    environment name: 'HOTFIX_BRANCH', value: 'hhotfix'
                 }
             }
             steps {
