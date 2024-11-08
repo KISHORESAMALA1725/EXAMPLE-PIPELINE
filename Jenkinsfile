@@ -11,7 +11,7 @@ pipeline {
                 echo "Required feature branch got executed"
             }
         }
-        stage {
+        stage ('STAGE IS SKIPPED') {
             steps {
                 echo "***** THIS STAGE IS SKIPPED !!!!! *****"
             }
