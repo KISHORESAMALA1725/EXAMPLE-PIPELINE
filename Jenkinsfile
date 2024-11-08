@@ -1,9 +1,18 @@
 pipeline {
     agent any
+    environment {
+        HOTFIX_BRANCH = 'hotfix'
+        FEATURE_BRANCH = 'feature'        
+    }
     stages {
-        stage ('this is main stage') {
+        stage ('BRANCH_EXECUTION') {
+            when {
+                expression {
+                    environment name: HOTFIX_BRANCH, value: 'hotfix'
+                }
+            }
             steps {
-                echo "CODE EXECUTED IN MAIN BRANCH"
+                echo "Required HOTFIX branch got executed"
             }
         }
     }
