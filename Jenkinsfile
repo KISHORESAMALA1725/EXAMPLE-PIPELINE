@@ -1,9 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage ('this is HOTFIX stage') {
+        stage ('BRANCH_EXECUTION') {
+            when {
+                expression {
+                    branch_name ==~ /(feature|hotfix)/
+                }
+            }
             steps {
-                echo "CODE EXECUTED IN HOTFIX BRANCH"
+                echo "Required HOTFIX branch got executed"
             }
         }
     }
