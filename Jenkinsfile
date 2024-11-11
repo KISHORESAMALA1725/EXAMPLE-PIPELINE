@@ -7,7 +7,7 @@ pipeline {
         stage ('this is when example') {
             steps {
                 when {
-                    environment name: "branch_name", value= "feature"
+                    environment name: 'branch_name', value= 'feature'
                 }
                 echo "feature branch is executed"
             }
