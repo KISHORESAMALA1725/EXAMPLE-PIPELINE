@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('this is expression stage') {
-            steps {
-               when {
-                  expression {
+        stage ('this is first stage'){
+            when {
+                expression {
                     branch_name ==~ /(feature|hotfix)/
-                  }
-               }
-               echo "this branch is executed"
+                }
+                steps {
+                    echo "this branch is executed"
+                }
             }
         }
     }
