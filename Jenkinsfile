@@ -1,12 +1,12 @@
 pipeline {
     agent any
     environment {
-        branch_name = 'feature'
+        BRANCH_NAME = 'feature'
     }
     stages {
         stage ('this is when example') {
                 when {
-                    environment name: 'branch_name', value: 'feature'
+                    environment name: 'BRANCH_NAME', value: 'feature'
                 }
                 steps {
                 echo "feature branch is executed"
