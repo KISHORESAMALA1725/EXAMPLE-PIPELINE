@@ -1,19 +1,15 @@
 pipeline {
     agent any
+    environment {
+        branch_name = 'feature'
+    }
     stages {
-        stage ('BRANCH_EXECUTION') {
-            when {
-                expression {
-                    branch_name ==~ /(feature|hotfix)/
+        stage ('this is when example') {
+            steps {
+                when {
+                    environment name: "branch_name", value= "feature"
                 }
-            }
-            steps {
-                echo "Required feature branch got executed"
-            }
-        }
-        stage ('STAGE IS SKIPPED') {
-            steps {
-                echo "***** THIS STAGE IS SKIPPED !!!!! *****"
+                echo "feature branch is executed"
             }
         }
     }
