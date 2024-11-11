@@ -1,14 +1,15 @@
 pipeline {
     agent any
+    environment {
+        branch_name = 'feature'
+    }
     stages {
-        stage ('BRANCH_EXECUTION') {
-            when {
-                expression {
-                    branch_name ==~ /(feature|hotfix|kishore)/
-                }
-            }
+        stage ('this is when example') {
             steps {
-                echo "Required feature branch got executed"
+                when {
+                    environment name: "branch_name", value= "feature"
+                }
+                echo "feature branch is executed"
             }
         }
     }
