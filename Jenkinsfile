@@ -1,17 +1,15 @@
 pipeline {
     agent any
-    environment {
-        BRANCH_NAME = 'feature'
-    }
     stages {
-        stage ('this is when example') {
-                when {
-                    environment name: 'BRANCH_NAME', value: 'feature'
-                }
-                steps {
-                echo "feature branch is executed"
-                }
-
+        stage('this is expression stage') {
+            steps {
+               when {
+                  expression {
+                    branch_name ==~ /(feature|hotfix)/
+                  }
+               }
+               echo "this branch is executed"
             }
         }
     }
+}
